@@ -55,9 +55,6 @@ const modal = (() => {
         //Define form so it's easier to access its elements
         let taskAddForm = document.querySelector("#task-form-modal>form");
 
-        //Get selected project to know which project to add the task to
-        let currentProject = projectData.selectedProject;
-
         //Set all arguments from the form info, then clear them
         let title = taskAddForm.title.value;
         let type = taskAddForm.type.value;
@@ -67,8 +64,8 @@ const modal = (() => {
 
         taskAddForm.reset();
 
-        //Add task with arguments to project 
-        currentProject.addTask(new Task(title, type, description, dueDate, priority));
+        //Add task with arguments to selectedProject
+        projectData.selectedProject.addTask(new Task(title, type, description, dueDate, priority));
         
         //Maybe hide modal as well, and refresh the display
     };
