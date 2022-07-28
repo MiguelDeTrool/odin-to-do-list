@@ -1,7 +1,7 @@
 //TODO
 //Create project elements DONE
 //Create task cards
-//Update according to current project 
+//Update according to current project DONE, mostly
 
 const displayController = (() => {
 
@@ -24,20 +24,36 @@ const displayController = (() => {
         };
     };
 
+    const createTaskCard = (taskObject, i) => {
+        let taskCard = document.createElement("div");
+        taskCard.setAttribute.dataIndex = i;
+        taskCard.classList.add = "task-card";
+        taskCard.classList.add = taskObject.priority;
+        //TODO Add support for checklists
+        let taskCardHTML = `
+            <h3 class="task-title">${taskObject.title}</h3>
+            <div class="task-description">${taskObject.description}</div>
+            <div class="task-due-date">${taskObject.dueDate}</div>
+            `;
+        taskCard.innerHTML = taskCardHTML;
+        return taskCard;
+    };
+
     const displayTasks = (tasks, parentElement) => {
         for (let i = 0; i < tasks.length; ++i) {
-            let newElement = document.createElement("div");
-            //TODO define newElement innerHTML here according to task content, maybe break out into another function. Don't forget to add the index as data-index attribute to get later
-            newElement.textContent = tasks[i].title;
+            let newElement = createTaskCard(tasks[i], i);
             parentElement.appendChild(newElement);
         };
         
     };
 
-    const refreshDisplay = (projects, selectedProject) => {
+    const refreshDisplay = (dataObject) => {
+        let projects = dataObject.projects;
+        let selectedProject = dataObject.selectedProject;
         //Define parent selectors for project and task containers here
         let projectsContainer = document.querySelector("nav");
         let tasksContainer = document.querySelector("main")
+
         clearDisplay(projectsContainer, tasksContainer);
         
         displayProject(projects, selectedProject, projectsContainer);

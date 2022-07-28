@@ -13,4 +13,4 @@ projectData.addProject(new Project("default project"));
 
 projectData.selectedProject.addTask(new Task("task title", "checklist", "testing", "01/01/1970", "important"));
 
-displayController.refreshDisplay(projectData.projects, projectData.selectedProject);
+displayController.refreshDisplay(projectData);
