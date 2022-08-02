@@ -13,8 +13,8 @@ class Project {
     };
 
     removeTask(index) {
-        this.tasks.slice(index, 1);
-    }
+        this.tasks.splice(index, 1);
+    };
 };
 
 export default Project;

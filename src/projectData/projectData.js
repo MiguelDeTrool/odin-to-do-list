@@ -12,7 +12,7 @@ const projectData = (() => {
     const addProject = (projectTitle) => projects.push(new Project(projectTitle));
 
     return {
-        //Getter and setter for selected project
+        //Set slected project index, get selected project itself
         set selectedProject(value) {
             _selectedProjectIndex = value;
         },

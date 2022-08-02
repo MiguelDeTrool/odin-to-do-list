@@ -9,7 +9,6 @@ import projectData from "./projectData/projectData.js"
 //New project form
 //Styles
 
-
 projectData.addProject("Default Project");
 
 projectData.selectedProject.addTask("Example", "text", "This is a task example", "01/01/1970", "important");

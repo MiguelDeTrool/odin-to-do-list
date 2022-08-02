@@ -66,7 +66,6 @@ const modal = (() => {
 
         //Add task with arguments to selectedProject
         projectData.selectedProject.addTask(title, type, description, dueDate, priority);
-        console.log(projectData);
         
         //Hide modal
         taskAddForm.parentElement.style.display ="none";
