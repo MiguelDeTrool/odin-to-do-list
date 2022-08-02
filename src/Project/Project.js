@@ -1,3 +1,5 @@
+import Task from "../Task/Task.js"
+
 class Project {
     title;
     tasks = [];
@@ -6,8 +8,8 @@ class Project {
         this.title = title;
     };
 
-    addTask(newTask) {
-        this.tasks.push(newTask);
+    addTask(title, type, description, dueDate, priority) {
+        this.tasks.push(new Task(title, type, description, dueDate, priority));
     };
 
     removeTask(index) {

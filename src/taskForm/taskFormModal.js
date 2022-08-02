@@ -1,11 +1,11 @@
+import displayController from "../displayController/displayController";
 import projectData from "../projectData/projectData";
 import "./task-form-modal.scss"
 
 //TODO
 
-//Add listener to close modal button ---> Can't select cancel button before it is created...
-//Add listener to submit modal button
-//Maybe add clear form button
+//Add addTask button listener
+//Add form validation, refuse new Task if not.  Waiting till next Odin Chapter to do so
 
 const modal = (() => {
     let modalContent = `
@@ -26,8 +26,8 @@ const modal = (() => {
             <input type="textarea" id="description">
             <label for="description"></label>
 
-            <input type="datetime" id="due-date">
-            <label for="due-date"></label>
+            <input type="date" id="date">
+            <label for="date"></label>
 
             <div>
                 <input type="radio" name="priority" id="high" value="3">
@@ -56,18 +56,23 @@ const modal = (() => {
         let taskAddForm = document.querySelector("#task-form-modal>form");
 
         //Set all arguments from the form info, then clear them
-        let title = taskAddForm.title.value;
-        let type = taskAddForm.type.value;
-        let description = taskAddForm.description.value;
-        let dueDate = taskAddForm.dueDate.value;
-        let priority = taskAddForm.priority.value;
+        let title = taskAddForm.title.value.toString();
+        let type = taskAddForm.type.value.toString();
+        let description = taskAddForm.description.value.toString();
+        let dueDate = taskAddForm.date.value; //TODO Add something like toDate here, or just verify type is Date
+        let priority = taskAddForm.priority.value.toString();
 
         taskAddForm.reset();
 
         //Add task with arguments to selectedProject
-        projectData.selectedProject.addTask(new Task(title, type, description, dueDate, priority));
+        projectData.selectedProject.addTask(title, type, description, dueDate, priority);
+        console.log(projectData);
         
-        //Maybe hide modal as well, and refresh the display
+        //Hide modal
+        taskAddForm.parentElement.style.display ="none";
+
+        //Refresh display
+        displayController.refreshDisplay(projectData);
     };
 
     const clearFields = () => {

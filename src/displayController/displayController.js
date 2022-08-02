@@ -1,3 +1,6 @@
+import { formatDistance, subDays } from 'date-fns'
+
+
 //TODO
 //Create project elements DONE
 //Create task cards
@@ -12,7 +15,7 @@ const displayController = (() => {
         };
     };
 
-    const displayProject = (projects, selectedProject, parentElement) => {
+    const displayProjects = (projects, selectedProject, parentElement) => {
         for (let i = 0; i < projects.length; ++i) {
             let newElement = document.createElement("div");
             newElement.textContent = projects[i].title;
@@ -48,15 +51,17 @@ const displayController = (() => {
     };
 
     const refreshDisplay = (dataObject) => {
+        //Get projects and selected project from the passed object
         let projects = dataObject.projects;
         let selectedProject = dataObject.selectedProject;
+
         //Define parent selectors for project and task containers here
-        let projectsContainer = document.querySelector("nav");
-        let tasksContainer = document.querySelector("main")
+        let projectsContainer = document.querySelector("#projects-container");
+        let tasksContainer = document.querySelector("#tasks-container");
 
         clearDisplay(projectsContainer, tasksContainer);
         
-        displayProject(projects, selectedProject, projectsContainer);
+        displayProjects(projects, selectedProject, projectsContainer);
         displayTasks(selectedProject.tasks, tasksContainer);
     };
 

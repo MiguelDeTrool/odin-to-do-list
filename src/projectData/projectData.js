@@ -1,4 +1,4 @@
-//Contains all the data (projects and tasks within them)
+import Project from "../Project/Project.js"
 
 //TODO
 //Add functionality to update and save in localStorage
@@ -9,7 +9,7 @@ const projectData = (() => {
     //Use selectedProject to know which project is currently selected
     let _selectedProjectIndex = 0;
 
-    const addProject = (newProject) => projects.push(newProject);
+    const addProject = (projectTitle) => projects.push(new Project(projectTitle));
 
     return {
         //Getter and setter for selected project
