@@ -5,6 +5,7 @@ import displayController from "./displayController/displayController.js"
 import taskForm from "./taskForm/taskForm.js"
 import projectData from "./projectData/projectData.js"
 
+//Within displayController, pass projectData on as an argument instead of importing it as a module
 //Delete tasks
 //New project form
 //Styles

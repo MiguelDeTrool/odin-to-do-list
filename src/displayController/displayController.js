@@ -15,11 +15,21 @@ const displayController = (() => {
         };
     };
 
+    const addProjectDeleteButton = (element) => {
+
+    };
+
+    const createProjectElement = (projects, i) => {
+        let projectObject = projects[i];
+        let projectElement = document.createElement("div");
+        projectElement.textContent = projectObject.title;
+        projectElement.setAttribute("data-index", i);        
+        return projectElement;
+    };
+
     const displayProjects = (projects, selectedProject, parentElement) => {
         for (let i = 0; i < projects.length; ++i) {
-            let newElement = document.createElement("div");
-            newElement.textContent = projects[i].title;
-            //TODO add index as data-attribute to retrieve later
+            let newElement = createProjectElement(projects, i);
             parentElement.appendChild(newElement);
             if (projects[i] === selectedProject) {
                 newElement.classList.add("selected");
@@ -41,7 +51,8 @@ const displayController = (() => {
         return element;
     };
 
-    const createTaskCard = (taskObject, i) => {
+    const createTaskCard = (tasks, i) => {
+        let taskObject = tasks[i];
         let taskCard = document.createElement("div");
         taskCard.setAttribute("data-index", i);
         taskCard.classList.add("task-card");
@@ -59,7 +70,7 @@ const displayController = (() => {
 
     const displayTasks = (tasks, parentElement) => {
         for (let i = 0; i < tasks.length; ++i) {
-            let newElement = createTaskCard(tasks[i], i);
+            let newElement = createTaskCard(tasks, i);
             parentElement.appendChild(newElement);
         };
         
