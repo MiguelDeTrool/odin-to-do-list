@@ -4,24 +4,30 @@ import Project from "../Project/Project.js"
 //Add functionality to update and save in localStorage
 
 const projectData = (() => {
-    const projects = [];
+    const _projects = [];
 
     //Use selectedProject to know which project is currently selected
     let _selectedProjectIndex = 0;
 
-    const addProject = (projectTitle) => projects.push(new Project(projectTitle));
+    const addProject = (projectTitle) => _projects.push(new Project(projectTitle));
+
+    const removeProject = (index) => _projects.splice(index, 1);
 
     return {
-        //Set slected project index, get selected project itself
+        //Set selected project index, get selected project itself
         set selectedProject(value) {
             _selectedProjectIndex = value;
         },
         get selectedProject() {
-            return projects[_selectedProjectIndex];
+            return _projects[_selectedProjectIndex];
         },
 
-        projects,
-        addProject, 
+        get projects() {
+            return _projects;
+        },
+
+        addProject,
+        removeProject,
     }
 })();
 
