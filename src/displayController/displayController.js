@@ -41,12 +41,6 @@ const displayController = (() => {
         let button = document.createElement("button");
         button.textContent = "Delete";
         button.classList.add("delete-task");
-        button.addEventListener("click", function(e) {
-            //Get index of task in project from event
-            let index = e.target.parentElement.getAttribute("data-index");
-            projectData.selectedProject.removeTask(index);
-            displayController.refreshDisplay(projectData);
-        });
         element.appendChild(button);
         return element;
     };
