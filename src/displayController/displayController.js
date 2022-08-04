@@ -1,9 +1,8 @@
-import projectData from "../projectData/projectData.js";
 import { formatDistance, subDays } from "date-fns";
 
 //TODO
 //Create project elements DONE
-//Create task cards
+//Create task cards DONE
 //Update according to current project DONE, mostly
 
 const displayController = (() => {
@@ -16,6 +15,11 @@ const displayController = (() => {
     };
 
     const addProjectDeleteButton = (element) => {
+        let button = document.createElement("button");
+        button.textContent = "X";
+        button.classList.add("delete-project");
+        element.appendChild(button);
+        return element;
 
     };
 
@@ -23,7 +27,8 @@ const displayController = (() => {
         let projectObject = projects[i];
         let projectElement = document.createElement("div");
         projectElement.textContent = projectObject.title;
-        projectElement.setAttribute("data-index", i);        
+        projectElement.setAttribute("data-index", i);     
+        projectElement =  addProjectDeleteButton(projectElement);
         return projectElement;
     };
 
@@ -39,7 +44,7 @@ const displayController = (() => {
 
     const addTaskDeleteButton = (element) => {
         let button = document.createElement("button");
-        button.textContent = "Delete";
+        button.textContent = "X";
         button.classList.add("delete-task");
         element.appendChild(button);
         return element;

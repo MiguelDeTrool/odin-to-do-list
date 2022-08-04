@@ -1,5 +1,3 @@
-import displayController from "../displayController/displayController";
-
 const taskDeleteButtons = (() => {
     const deleteTask = (e, projectData) => {
         //Get index of task in project from event

@@ -2,13 +2,11 @@ import "./reset.css"
 import "./styles.scss"
 
 import displayController from "./displayController/displayController.js"
-import eventListeners from "./eventListeners/eventListeners.js"
+import dynamicEventListeners from "./dynamicEventListeners/dynamicEventListeners.js"
 import taskForm from "./taskForm/taskForm.js"
 import projectData from "./projectData/projectData.js"
 
-
-//Within displayController, pass projectData on as an argument instead of importing it as a module
-//Delete tasks
+//TO DO
 //New project form
 //Styles
 
@@ -18,4 +16,4 @@ projectData.selectedProject.addTask("Example", "text", "This is a task example",
 
 displayController.refreshDisplay(projectData);
 
-eventListeners.addAllListeners(projectData)
+dynamicEventListeners.addAllListeners(projectData)

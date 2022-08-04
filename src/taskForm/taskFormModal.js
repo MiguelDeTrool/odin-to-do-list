@@ -15,7 +15,7 @@ const modal = (() => {
             <label for="title">Title</label>
 
             <div>
-                <input type="radio" name="type" id="text" value="text">
+                <input type="radio" name="type" id="text" value="text" checked>
                 <label for="high">Text</label>
             </div>
             <div>
@@ -26,7 +26,7 @@ const modal = (() => {
             <input type="textarea" id="description">
             <label for="description"></label>
 
-            <input type="date" id="date">
+            <input type="date" id="date" value="1970-01-01">
             <label for="date"></label>
 
             <div>
@@ -34,7 +34,7 @@ const modal = (() => {
                 <label for="high">High</label>
             </div>
             <div>
-                <input type="radio" name="priority" id="normal" value="2">
+                <input type="radio" name="priority" id="normal" value="2" checked>
                 <label for="normal">Normal</label>
             </div>
             <div>
