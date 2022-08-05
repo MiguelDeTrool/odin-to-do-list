@@ -1,3 +1,6 @@
+//TODO
+//Make sure there is at least one Project
+
 const projectDeleteButtons = (() => {
     const deleteProject = (e, projectData) => {
         //Get index of task in project from event

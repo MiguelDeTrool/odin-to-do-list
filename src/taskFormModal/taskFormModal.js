@@ -64,11 +64,11 @@ const modal = (() => {
 
         taskAddForm.reset();
 
+        //Hide modal
+        taskAddForm.parentElement.style.display = "none";
+        
         //Add task with arguments to selectedProject
         projectData.selectedProject.addTask(title, type, description, dueDate, priority);
-        
-        //Hide modal
-        taskAddForm.parentElement.style.display ="none";
 
         //Refresh display
         displayController.refreshDisplay(projectData);

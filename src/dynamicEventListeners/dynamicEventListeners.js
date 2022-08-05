@@ -9,8 +9,11 @@ import projectName from "./projectName.js"
 
 import displayController from "../displayController/displayController.js";
 
+//TODO
+//Select project not working on inner elements of .project-element. It's not even setting off an event, maybe bubbling/capture pb
+
 const eventListeners = (() => {
-    
+
     //Set listeners on document object, which facilitates adding listeners to dynamically created elements.
 
     function setDynamicListener(type, selector, callback, options = {}, useCapture = false) {
@@ -24,16 +27,16 @@ const eventListeners = (() => {
     const addAllListeners = (projectData) => {
         //Add all event listeners within this function. Add displayController refresh if the display needs refreshing after the model is updated
 
-        //To display modal on "Add Task" button click 
-        setDynamicListener("click", "#task-form-button", () => { taskFormButton.displayModal("#task-form-modal")});
+        //To display modal on "Add Task" button click
+        setDynamicListener("click", "#task-form-button", () => { taskFormButton.displayModal("#task-form-modal") });
 
         //To delete task and update display
-        setDynamicListener("click", ".delete-task", (e) => { taskDeleteButtons.deleteTask(e, projectData);
-        displayController.refreshDisplay(projectData);
+        setDynamicListener("click", ".delete-task", (e) => {
+            taskDeleteButtons.deleteTask(e, projectData);
+            displayController.refreshDisplay(projectData);
         });
 
-
-        //To select a project 
+        //To select a project
         setDynamicListener("click", ".project-element", (e) => {
             projectSelector.selectProject(e, projectData);
             displayController.refreshDisplay(projectData);
@@ -54,9 +57,9 @@ const eventListeners = (() => {
 
         //To confirm the new name
         setDynamicListener("click", ".project-name-confirm", (e) => {
-        projectSelector.selectProject(e, projectData);
-        projectName.confirmProjectName(e, projectData);
-        displayController.refreshDisplay(projectData);
+            projectSelector.selectProject(e, projectData);
+            projectName.confirmProjectName(e, projectData);
+            displayController.refreshDisplay(projectData);
         });
 
         //To delete project and update display
