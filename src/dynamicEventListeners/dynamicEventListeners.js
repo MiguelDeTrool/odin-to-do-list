@@ -11,19 +11,14 @@ import displayController from "../displayController/displayController.js";
 
 const eventListeners = (() => {
     
-    //Set listeners on document object, which facilitates adding listeners to dynamically created elements. 
+    //Set listeners on document object, which facilitates adding listeners to dynamically created elements.
+
     function setDynamicListener(type, selector, callback, options = {}, useCapture = false) {
         document.addEventListener(type, (e) => {
             if (e.target.matches(selector)) {
-                let elements = document.querySelectorAll(selector);
-
-                for (let i = 0; i < elements.length; i++) {
-                    elements[i].addEventListener(type, callback(e));
-                };
+                callback(e);
             };
-        },
-        options,
-        useCapture);
+        });
     };
 
     const addAllListeners = (projectData) => {
