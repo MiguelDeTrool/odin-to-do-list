@@ -25,8 +25,15 @@ const displayController = (() => {
 
     const createProjectElement = (projects, i) => {
         let projectObject = projects[i];
+
         let projectElement = document.createElement("div");
-        projectElement.textContent = projectObject.title;
+        projectElement.classList.add("project-element");
+
+        let projectNameElement = document.createElement("div");
+        projectNameElement.textContent = projectObject.title;
+        projectNameElement.classList.add("project-name");
+        projectElement.appendChild(projectNameElement);
+
         projectElement.setAttribute("data-index", i);     
         projectElement =  addProjectDeleteButton(projectElement);
         return projectElement;
