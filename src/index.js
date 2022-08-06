@@ -18,6 +18,6 @@ dynamicEventListeners.addAllListeners(projectData)
 
 projectData.addProject("Default Project");
 
-projectData.selectedProject.addTask("Example", "text", "This is a task example", "01/01/1970", "important");
+projectData.selectedProject.addTask("Example", "text", "This is a task example", "1970-01-01", "important");
 
 displayController.refreshDisplay(projectData);

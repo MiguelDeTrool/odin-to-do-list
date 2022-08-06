@@ -16,7 +16,7 @@ const displayController = (() => {
 
     const addProjectDeleteButton = (element) => {
         let button = document.createElement("button");
-        button.textContent = "X";
+        button.textContent = "✖️";
         button.classList.add("delete-project");
         element.appendChild(button);
         return element;
@@ -51,7 +51,7 @@ const displayController = (() => {
 
     const addTaskDeleteButton = (element) => {
         let button = document.createElement("button");
-        button.textContent = "X";
+        button.textContent = "✖️";
         button.classList.add("delete-task");
         element.appendChild(button);
         return element;

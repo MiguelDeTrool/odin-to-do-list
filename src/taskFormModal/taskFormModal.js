@@ -11,8 +11,8 @@ const modal = (() => {
     let modalContent = `
         <form action="javascript:void(0)">
 
-            <input type="text" id="title">
             <label for="title">Title</label>
+            <input type="text" id="title">
 
             <div>
                 <input type="radio" name="type" id="text" value="text" checked>
@@ -23,8 +23,8 @@ const modal = (() => {
                 <label for="normal">Checklist</label>
             </div>
 
+            <label for="description">Description</label>
             <input type="textarea" id="description">
-            <label for="description"></label>
 
             <input type="date" id="date" value="1970-01-01">
             <label for="date"></label>
