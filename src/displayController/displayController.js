@@ -62,7 +62,7 @@ const displayController = (() => {
         let taskCard = document.createElement("div");
         taskCard.setAttribute("data-index", i);
         taskCard.classList.add("task-card");
-        taskCard.classList.add(taskObject.priority);
+        taskCard.classList.add(`priority-${taskObject.priority}`);
         //TODO Add support for checklists
         let taskCardHTML = `
             <h3 class="task-title">${taskObject.title}</h3>

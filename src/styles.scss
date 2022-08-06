@@ -108,9 +108,20 @@ main {
             gap: calc(var(--gap-size) / 2);
             padding: calc(var(--gap-size) / 2);
 
-            background-color: var(--gap-color);
-
             border-radius: var(--border-radius);
+
+            //Background color according to priority
+            &.priority-important {
+                background-color: #FFB0B0;
+            }
+
+            &.priority-normal {
+                background-color: #FFFFB0;
+            }
+
+            &.priority-low {
+                background-color: #B0FFB0;
+            }
 
             .task-title {
                 grid-area: 1 / 1 / 2 / -1;
